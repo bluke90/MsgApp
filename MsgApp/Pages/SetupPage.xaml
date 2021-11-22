@@ -1,0 +1,36 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MsgApp.SetupPage"
+             BackgroundColor="{DynamicResource PrimaryColor}">
+
+    <ScrollView>
+        <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,*"
+              Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
+
+            <Label 
+                Text="Welcome to App Name, Here we will help you get your account setup!"
+                Grid.Row="0"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center" />
+
+            <Label
+                Text="Enter a UserName"
+                Grid.Row="1"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="18"
+                HorizontalOptions="Center" />
+
+            <Entry
+                x:Name="userName"
+                Grid.Row="2"
+                TextColor="WhiteSmoke"/>
+
+            <Button
+                Text="Go!"
+                Grid.Row="3"
+                Clicked="OnGoClicked"/>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>
