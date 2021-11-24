@@ -2,7 +2,7 @@
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Essentials;
 
-namespace MsgApp
+namespace MsgApp.Pages
 {
 	public partial class SetupPage : ContentPage
 	{
