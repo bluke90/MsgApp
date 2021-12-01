@@ -24,6 +24,10 @@ namespace MsgApp.Pages
 			await _context.SaveChangesAsync();
 			App.Current.MainPage = new MainPage();
         }
+		private void OnGoBack(object sender, EventArgs e)
+        {
+			App.Current.MainPage = new MainPage();
+        }
 
 	}
 }

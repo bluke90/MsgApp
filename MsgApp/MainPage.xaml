@@ -3,23 +3,46 @@
              x:Class="MsgApp.MainPage"
              BackgroundColor="{DynamicResource PrimaryColor}">
 
-    <ScrollView>
-        <Grid RowSpacing="0" RowDefinitions="Auto,Auto,Auto,Auto,*"
-              Padding="{OnPlatform iOS='30,60,30,30', Default='30'}" x:Name="grid">
+    <ScrollView x:Name="scrollView">
+        <AbsoluteLayout HorizontalOptions="CenterAndExpand">
+        <VerticalStackLayout 
+                Padding="{OnPlatform iOS='30,60,30,30', Default='30'}"
+                x:Name="verticalStack"
+                Spacing="25"
+                HorizontalOptions="FillAndExpand"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+               AbsoluteLayout.LayoutFlags="All">
 
-            <Label 
-                Text="Select a friend to chat with:"
-                Grid.Row="0"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="24"
-                HorizontalOptions="Center" />
-            <Button
-                Text="Add Contact"
-                Grid.Row="0"
-                HorizontalOptions="Start"
-                Clicked="OnAddContact"/>
+                <Grid>
+                    <Label 
+                        Text="Select a friend to chat with:"
+                        SemanticProperties.HeadingLevel="Level1"
+                        FontSize="18"
+                        Grid.Row="0"
+                        HorizontalOptions="Center" />
 
+                    <Button
+                        Text="Add Contact"
+                        HorizontalOptions="Start"
+                        Grid.Row="0"
+                        Clicked="OnAddContact"/>
 
-        </Grid>
+                    <Label
+                        x:Name="personalToken"
+                        HorizontalOptions="EndAndExpand"
+                        TranslationX="-80"
+                        Grid.Row="0"
+                        SemanticProperties.HeadingLevel="Level1"
+                        FontSize="18"/>
+                </Grid>
+                <Button
+                        Text="Purge Contacts"
+                        HorizontalOptions="Start"
+                        BorderColor="White"
+                        BorderWidth="2"
+                        Clicked="OnPurgeContacts"/>
+
+            </VerticalStackLayout>
+        </AbsoluteLayout>
     </ScrollView>
 </ContentPage>

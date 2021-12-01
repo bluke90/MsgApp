@@ -4,40 +4,45 @@
              BackgroundColor="{DynamicResource PrimaryColor}">
 
     <ScrollView>
-        <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,*"
+
+        <VerticalStackLayout Spacing="25"
               Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
 
-            <Label 
+            <Grid>
+                <Label 
                 Text="Add a New Contact:"
-                Grid.Row="0"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="21"
                 HorizontalOptions="Center" />
-
+                <Button
+                    Text="Go Back"
+                    HorizontalOptions="Start"
+                    Clicked="OnGoBack"/>
+            </Grid>
             <Label
                 Text="Enter the name that you would like this contact to be stored under:"
-                Grid.Row="1"
                 SemanticProperties.HeadingLevel="Level1"
-                FontSize="18"
-                HorizontalOptions="Center" />
+                FontSize="16"
+                HorizontalOptions="FillAndExpand" />
 
             <Entry
                 x:Name="ContactName"
-                Grid.Row="2"
                 TextColor="WhiteSmoke"
-                HorizontalOptions="Center"/>
+                HorizontalOptions="FillAndExpand"/>
+            <Label
+                Text="Enter Personal Token:"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="16"
+                HorizontalOptions="FillAndExpand" />
             <Entry
                 x:Name="ContactID"
-                Grid.Row="3"
                 TextColor="WhiteSmoke"
-                HorizontalOptions="Center"/>
+                HorizontalOptions="FillAndExpand"/>
 
             <Button
                 Text="Go!"
-                Grid.Row="4"
                 Clicked="OnAddContact"
-                HorizontalOptions="Center"/>
-
-        </Grid>
+                HorizontalOptions="FillAndExpand"/>
+        </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
