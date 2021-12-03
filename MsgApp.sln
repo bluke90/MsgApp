@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MsgApp", "MsgApp\MsgApp.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MsgApp_Server", "MsgApp_Server\MsgApp_Server.csproj", "{187B25F3-4AE6-4F24-8810-9781C0890F02}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MsgApp_Client", "MsgApp_Client", "{D6B423E1-EFBA-4FAC-A871-6A0B0D83723E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsgApp_Client", "MsgApp_Client\MsgApp_Client.csproj", "{F3559F1B-F518-4563-8FAB-5D077ED3A43C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		a|Any CPU = a|Any CPU
@@ -38,9 +42,20 @@ Global
 		{187B25F3-4AE6-4F24-8810-9781C0890F02}.MsgApp_Debug|Any CPU.Build.0 = Debug|Any CPU
 		{187B25F3-4AE6-4F24-8810-9781C0890F02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{187B25F3-4AE6-4F24-8810-9781C0890F02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3559F1B-F518-4563-8FAB-5D077ED3A43C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3559F1B-F518-4563-8FAB-5D077ED3A43C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3559F1B-F518-4563-8FAB-5D077ED3A43C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F3559F1B-F518-4563-8FAB-5D077ED3A43C}.MsgApp_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3559F1B-F518-4563-8FAB-5D077ED3A43C}.MsgApp_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3559F1B-F518-4563-8FAB-5D077ED3A43C}.MsgApp_Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F3559F1B-F518-4563-8FAB-5D077ED3A43C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3559F1B-F518-4563-8FAB-5D077ED3A43C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F3559F1B-F518-4563-8FAB-5D077ED3A43C} = {D6B423E1-EFBA-4FAC-A871-6A0B0D83723E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {61F7FB11-1E47-470C-91E2-47F8143E1572}
