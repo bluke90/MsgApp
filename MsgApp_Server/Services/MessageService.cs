@@ -9,13 +9,18 @@ using System.Threading.Tasks;
 namespace MsgApp_Server.Services {
     
     public static class MessageService {
-        public static void ProcessIncomingPacket(byte[] data)
+        public static void ProcessIncomingPacket(string data)
         {
             // Get string from bytes
-            var strData = Encoding.ASCII.GetString(data, 0, data.Length);
+            //var strData = Encoding.ASCII.GetString(data, 0, data.Length);
             // Deserialize string to Message obj
-            Message message = JsonSerializer.Deserialize<Message>(strData);
-            
+            Message message = JsonSerializer.Deserialize<Message>(data);
+            // Store Message in local db
+            var _context = new Data.DataContext();
+            _context.Messages.Add(message);
+            _context.SaveChanges();
+            Console.WriteLine(message.Body);
+            Console.WriteLine(message.Sender);
         }
         public static void ProcessOutboundPacket(this Message message)
         {

@@ -26,7 +26,7 @@
 		<SupportedOSPlatformVersion Condition="'$(TargetFramework)' == 'net6.0-android'">21.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.17763.0</TargetPlatformMinVersion>
-		<Configurations>Debug;Release</Configurations>
+		<Configurations>Debug;Release;a;test;l</Configurations>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -65,11 +65,11 @@
 	  <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.0" />
 	  <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Design" Version="1.1.6" />
 	</ItemGroup>
-
+<!--
 	<ItemGroup>
 	  <ProjectReference Include="..\MsgApp_Server\MsgApp_Server.csproj" />
 	</ItemGroup>
-
+-->
 	<ItemGroup>
 	  <Compile Update="Pages\AddContact.xaml.cs">
 	    <DependentUpon>AddContact.xaml</DependentUpon>

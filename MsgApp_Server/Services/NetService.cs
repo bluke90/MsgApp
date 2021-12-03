@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using MsgApp_Server.Services;
 
 namespace MsgApp_Server.Services
 {
@@ -36,7 +37,12 @@ namespace MsgApp_Server.Services
         {
             while (true)
             {
-                NetService.queue.Dequeue();
+                if (NetService.queue.Count > 0)
+                {
+                    var stringData = NetService.queue.Dequeue();
+                    Task.Run(() => MessageService.ProcessIncomingPacket(stringData));
+                }
+                Thread.Sleep(200);
             }
             
         }
