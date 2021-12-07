@@ -1,19 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0-windows10.0.19041</TargetFrameworks> <!--net6.0-android;net6.0-ios;net6.0-maccatalyst; net6.0-ios;net6.0-windows10.0.19041-->
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows')) and '$(MSBuildRuntimeType)' == 'Full'">$(TargetFrameworks);</TargetFrameworks>
+		<TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows')) and '$(MSBuildRuntimeType)' == 'Full'">$(TargetFrameworks);net6.0-windows10.0.19041</TargetFrameworks>
 		<OutputType>Exe</OutputType>
-		<RootNamespace>MsgApp</RootNamespace>
+		<RootNamespace>MsgApp_Client</RootNamespace>
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
 		<EnablePreviewMsixTooling>true</EnablePreviewMsixTooling>
 
 		<!-- Display name -->
-		<ApplicationTitle>MsgApp</ApplicationTitle>
+		<ApplicationTitle>MsgApp_Client</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.MsgApp</ApplicationId>
+		<ApplicationId>com.companyname.MsgApp_Client</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationVersion>1</ApplicationVersion>
@@ -26,7 +26,6 @@
 		<SupportedOSPlatformVersion Condition="'$(TargetFramework)' == 'net6.0-android'">21.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.17763.0</TargetPlatformMinVersion>
-		<Configurations>Debug;Release;a;test;l</Configurations>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -45,52 +44,46 @@
 
 	<ItemGroup Condition="$(TargetFramework.Contains('-windows'))">
 		<!-- Required - WinUI does not yet have buildTransitive for everything -->
-		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.0" />
-		<PackageReference Include="Microsoft.Graphics.Win2D" Version="1.0.0.30" />
+		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.0-preview3" />
+		<PackageReference Include="Microsoft.Graphics.Win2D" Version="1.0.0.29-preview3" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Remove="Pages\MessageDialog.xaml" />
+		<MauiXaml Remove="Pages\MessageDialog.xaml" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Include="Pages\MessageDialog.xaml">
-	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-	  </EmbeddedResource>
+		<EmbeddedResource Include="Pages\MessageDialog.xaml">
+			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="EntityFramework" Version="6.4.4" />
 	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
-	  <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.0" />
-	  <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Design" Version="1.1.6" />
-	</ItemGroup>
-<!--
-	<ItemGroup>
-	  <ProjectReference Include="..\MsgApp_Server\MsgApp_Server.csproj" />
-	</ItemGroup>
--->
-	<ItemGroup>
-	  <Compile Update="Pages\AddContact.xaml.cs">
-	    <DependentUpon>AddContact.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Pages\MessageDialog.xaml.cs">
-	    <DependentUpon>MessageDialog.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Pages\SetupPage.xaml.cs">
-	    <DependentUpon>SetupPage.xaml</DependentUpon>
-	  </Compile>
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Pages\AddContact.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\SetupPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
+		<Compile Update="Pages\AddContact.xaml.cs">
+			<DependentUpon>AddContact.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="Pages\MessageDialog.xaml.cs">
+			<DependentUpon>MessageDialog.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="Pages\SetupPage.xaml.cs">
+			<DependentUpon>SetupPage.xaml</DependentUpon>
+		</Compile>
 	</ItemGroup>
 
+	<ItemGroup>
+		<MauiXaml Update="Pages\AddContact.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Pages\SetupPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+	</ItemGroup>
+	
 	<PropertyGroup Condition="$(TargetFramework.Contains('-windows'))">
 		<OutputType>WinExe</OutputType>
 		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
