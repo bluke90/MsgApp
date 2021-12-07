@@ -20,16 +20,14 @@ using System.Text.Json.Serialization;
 
 //NetService Net = new NetService();
 
-public class Services{
-    public NetService NetService { get; private set; }
-    public Services()
-    {
-        NetService = new NetService();
-    }
-}
+
+RelayService relay = new RelayService();
+
+
+
 
 //Task.Run(() => Net.StartListening());
-Net.StartListening();
+
 
 /*
 Message msg = new Message

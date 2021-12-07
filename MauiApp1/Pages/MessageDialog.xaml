@@ -1,0 +1,27 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MsgApp.Pages.MessageDialog"
+             BackgroundColor="{DynamicResource PrimaryColor}">
+
+    <VerticalStackLayout
+        x:Name="messagesView"
+        Spacing="25"
+        Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
+
+        <AbsoluteLayout
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="EndAndExpand">
+
+            <Entry
+                x:Name="dataEntry"
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="CenterAndExpand"/>
+            <Button
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="EndAndExpand"
+                Clicked="OnSendMessage"/>
+
+        </AbsoluteLayout>
+    </VerticalStackLayout>
+
+</ContentPage>

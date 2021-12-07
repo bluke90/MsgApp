@@ -2,11 +2,11 @@
 using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 
-namespace MsgApp
+namespace MauiApp1
 {
-	[Register("AppDelegate")]
-	public class AppDelegate : MauiUIApplicationDelegate
-	{
-		protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
-	}
+    [Register("AppDelegate")]
+    public class AppDelegate : MauiUIApplicationDelegate
+    {
+        protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
+    }
 }
